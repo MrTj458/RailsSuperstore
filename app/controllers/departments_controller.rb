@@ -10,7 +10,6 @@ class DepartmentsController < ApplicationController
 
   def new
     @department = Department.new
-    render partial: 'form'
   end
 
   def create
@@ -24,7 +23,6 @@ class DepartmentsController < ApplicationController
   end
 
   def edit
-    render partial: 'form'
   end
 
   def update

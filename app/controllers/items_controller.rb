@@ -10,12 +10,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = @department.item.new
-    render partial: 'form'
+    @item = @department.items.new
   end
 
   def create
-    @item = @department.item.new(item_params)
+    @item = @department.items.new(item_params)
 
     if @item.save
       redirect_to department_item_path(@department.id, @item.id)
@@ -25,7 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    render partial: 'form'
   end
 
   def update
@@ -38,7 +36,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to department_items
+    redirect_to department_items_path(@department.id)
   end
 
   private
